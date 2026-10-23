@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+  <title>Duck Hunt</title>
+  <style>
+    html, body { margin: 0; height: 100%; background: #000; color: #fff; font: 16px "Times New Roman", Times, serif; overscroll-behavior: none; }
+    body { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100dvh; padding-bottom: env(safe-area-inset-bottom); }
+    #game {
+      display: block; cursor: none; touch-action: none;
+      width: min(100vw, calc((100vh - 56px) * 256 / 240)); aspect-ratio: 256 / 240;
+      image-rendering: pixelated; image-rendering: crisp-edges;
+    }
+    @supports (height: 100dvh) { #game { width: min(100vw, calc((100dvh - 56px) * 256 / 240)); } }
+    #status { margin: 8px 0 0; font-size: 14px; text-align: center; min-height: 40px; }
+    #status a { color: #fff; }
+  </style>
+</head>
+<body>
+  <canvas id="game" width="768" height="720">
+    Your browser does not support the canvas element, so this game cannot run.
+  </canvas>
+  <p id="status">click to shoot &middot; Enter starts &middot; M mutes</p>
+  <noscript>This game needs JavaScript.</noscript>
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
